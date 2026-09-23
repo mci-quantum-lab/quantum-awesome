@@ -10,6 +10,9 @@ A curated list of awesome resources, tools, frameworks, papers, and learning mat
 
 - [Quantum Computing](#quantum-computing)
 - [Post-Quantum Cryptography (PQC)](#post-quantum-cryptography-pqc)
+  - [Standards](#standards)
+  - [Papers](#papers)
+  - [Repositories](#repositories)
 - [Quantum Key Distribution (QKD)](#quantum-key-distribution-qkd)
 - [Quantum Sensing](#quantum-sensing)
 - [Quantum Radar](#quantum-radar)
@@ -40,13 +43,34 @@ General resources, foundational papers, and overviews of quantum computing.
 
 Cryptographic algorithms believed to be secure against quantum adversaries.
 
-- [NIST Post-Quantum Cryptography Project](https://csrc.nist.gov/projects/post-quantum-cryptography) — Official NIST standardization effort and selected algorithms.
-- [CRYSTALS-Kyber](https://pq-crystals.org/kyber/) — NIST-selected lattice-based key encapsulation mechanism (ML-KEM).
-- [CRYSTALS-Dilithium](https://pq-crystals.org/dilithium/) — NIST-selected lattice-based digital signature scheme (ML-DSA).
-- [SPHINCS+](https://sphincs.org/) — Stateless hash-based signature scheme.
-- [Open Quantum Safe (liboqs)](https://openquantumsafe.org/) — Open-source C library and integrations for prototyping PQC.
-- [PQClean](https://github.com/PQClean/PQClean) — Clean, portable reference implementations of PQC schemes.
-- [Cloudflare: "The state of the post-quantum internet"](https://blog.cloudflare.com/pq-2024/) — Practical overview of PQC deployment on the internet.
+### Standards
+
+- [NIST Post-Quantum Cryptography Project](https://csrc.nist.gov/projects/post-quantum-cryptography) — The official NIST standardization effort and page for selected algorithms.
+- [FIPS 203 — ML-KEM](https://csrc.nist.gov/pubs/fips/203/final) — The finalized standard for the Kyber-based key encapsulation mechanism.
+- [FIPS 204 — ML-DSA](https://csrc.nist.gov/pubs/fips/204/final) — The finalized standard for the Dilithium-based digital signature scheme.
+- [FIPS 205 — SLH-DSA](https://csrc.nist.gov/pubs/fips/205/final) — The finalized standard for the SPHINCS+-based stateless hash signature scheme.
+- [ETSI Quantum-Safe Cryptography](https://www.etsi.org/technologies/quantum-safe-cryptography) — European standardization work on quantum-safe protocols and migration.
+
+### Papers
+
+- [CRYSTALS-Kyber (original paper)](https://eprint.iacr.org/2017/634) — Introduces the lattice-based KEM that became ML-KEM.
+- [CRYSTALS-Dilithium (original paper)](https://eprint.iacr.org/2017/633) — Introduces the lattice-based signature scheme that became ML-DSA.
+- [SPHINCS+ (original paper)](https://eprint.iacr.org/2019/1086) — Introduces the stateless hash-based signature scheme that became SLH-DSA.
+- [NIST IR 8413 — Status Report on the 3rd Round](https://csrc.nist.gov/pubs/ir/8413/final) — NIST's own report explaining the selection rationale.
+- [Cloudflare — "The state of the post-quantum internet"](https://blog.cloudflare.com/pq-2024/) — A practical look at real-world PQC deployment on the internet.
+
+### Repositories
+
+- [`open-quantum-safe/liboqs`](https://github.com/open-quantum-safe/liboqs) — The most widely used and best-maintained C library for quantum-safe KEMs and signatures, with wrappers for many languages.
+- [`open-quantum-safe/oqs-provider`](https://github.com/open-quantum-safe/oqs-provider) — An OpenSSL 3 provider that adds PQC and hybrid support to TLS 1.3, X.509, and CMS.
+- [`pq-code-package/mlkem-native`](https://github.com/pq-code-package/mlkem-native) — A secure, formally-verified, portable C90 implementation of ML-KEM (FIPS 203).
+- [`pq-code-package/mldsa-native`](https://github.com/pq-code-package/mldsa-native) — A secure, formally-verified, portable C90 implementation of ML-DSA (FIPS 204).
+- [`cloudflare/circl`](https://github.com/cloudflare/circl) — Cloudflare's Go cryptography library, including Kyber/ML-KEM and Dilithium implementations.
+- [`PQClean/PQClean`](https://github.com/PQClean/PQClean) — Clean reference implementations of NIST PQC candidates; being phased out in favor of PQ Code Package (archival planned for mid-2026).
+- [`rustpq/pqcrypto`](https://github.com/rustpq/pqcrypto) — Rust bindings auto-generated from PQClean, covering most NIST PQC algorithms.
+- [`open-quantum-safe/liboqs-python`](https://github.com/open-quantum-safe/liboqs-python) — Official Python wrapper around liboqs.
+- [`open-quantum-safe/boringssl`](https://github.com/open-quantum-safe/boringssl) — A fork of Google's BoringSSL with liboqs-based PQC key exchange for TLS 1.3.
+- [`bcgit/bc-java`](https://github.com/bcgit/bc-java) — Bouncy Castle's Java crypto library, which includes production-grade ML-KEM/ML-DSA/SLH-DSA support.
 
 ## Quantum Key Distribution (QKD)
 
